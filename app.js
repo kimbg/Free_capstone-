@@ -5,12 +5,24 @@ const FileStore = require('session-file-store')(session);
 const passport = require('passport');
 const LocalStrategy = require("passport-local").Strategy;
 
+
+
+
 const port = process.env.port || 3000;
 const cookieParser = require('cookie-parser');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const loguoutRouter = require('./routes/logout');
+const template = require('./login');
 
+const mysql = require('mysql');
+const db = mysql.createConnection({
+    host : 'localhost',
+    user : 'root',
+    password : '2wndeo12#',
+    database : 'opentutorials'
+});
+db.connect();
 
 
 app.use(express.urlencoded({extended:false}));
@@ -108,14 +120,19 @@ app.use('/register',loguoutRouter);
 //세션 값들은 서버가 꺼지면 없어지기 때문에 휘발되지 않도록 하기위해
 // 서버에 임의의 장소에 값을 저장해야한다.
 app.get('/', (req,res) => {
-    console.log('/',req.user);
-    console.log(req.session);
-    if(req.session.num == undefined) {
-        req.session.num = 1;
-    } else {
-        req.session.num += 1;
-    }
-    res.send(`Views : ${req.session.num}`);
+    db.query('SELECT * FROM topic',(err,result,field) => {
+        if(err) console.log(err);
+        
+        console.log(req.query);
+        db.query(`SELECT * FROM topic where id = ${req.query.id}`,(err2,result,field) => {
+            if(err2) console.log(err2);
+            console.log(result);
+            var html = template.list(result);        
+            res.send(html);
+        });
+        
+    });
+    
     
 })
 
@@ -129,8 +146,8 @@ app.get('/index',(req,res) => {
 //이름으로 저장해서 req.params에 저장해 사용할 수 있도록 한다
 app.get('/register/:pageID/:ChapterID',(req,res)=> {
     res.send(req.params);
+    
 })
-
 
 
 
