@@ -15,14 +15,7 @@ const registerRouter = require('./routes/register');
 const loguoutRouter = require('./routes/logout');
 const template = require('./login');
 
-const mysql = require('mysql');
-const db = mysql.createConnection({
-    host : 'localhost',
-    user : 'root',
-    password : '2wndeo12#',
-    database : 'opentutorials'
-});
-db.connect();
+const mysqlConf = require('./config.js').mysql_pool;
 
 
 app.use(express.urlencoded({extended:false}));
@@ -120,18 +113,14 @@ app.use('/register',loguoutRouter);
 //세션 값들은 서버가 꺼지면 없어지기 때문에 휘발되지 않도록 하기위해
 // 서버에 임의의 장소에 값을 저장해야한다.
 app.get('/', (req,res) => {
-    db.query('SELECT * FROM topic',(err,result,field) => {
-        if(err) console.log(err);
-        
-        console.log(req.query);
-        db.query(`SELECT * FROM topic where id = ${req.query.id}`,(err2,result,field) => {
-            if(err2) console.log(err2);
+    mysqlConf.getConnection((err,conn)=> {
+        conn.query('select * from topic',(err,result,field) => {
+            if(err)throw err;
             console.log(result);
-            var html = template.list(result);        
-            res.send(html);
-        });
-        
-    });
+            conn.release();
+            res.send("hello");
+        })
+    })
     
     
 })
@@ -156,4 +145,3 @@ app.get('/register/:pageID/:ChapterID',(req,res)=> {
 app.listen(port, (req,res) => {
     console.log("The server is listening..");
 })
-
