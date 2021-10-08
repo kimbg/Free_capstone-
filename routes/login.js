@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const cookieParser = require('cookie-parser');
 const template = require('../template');
-
+const passport = require('../lib/passport')(router);
 
 
 router.use(cookieParser());
@@ -14,7 +14,20 @@ router.get('/',(req,res,isLogin)=> {
 })
 
 
-
+router.post('/',
+    //local은 id 와password를 이용해서 로그인하는것(기본)
+    //아래 코드를 적어줌으로써 /login 의 post방식으로 접근됐을때 passport이용함
+    passport.authenticate('local', {
+        failureRedirect : '/login'
+    }),
+    //위의 passport전략에서 로그인에 성공되면 아래 코드 실행
+    //세션이 저장될때가 있고 안될때까있어서 그냥 세션을 저장하고 그뒤에 홈페이지 위치지정해줌
+    (req,res) => {
+        req.session.save(() => {
+            res.redirect('/index');
+        })
+    }
+ )
 
 
 
