@@ -31,7 +31,7 @@ app.use(session({
 
 
 
-var passport = require('./lib/passport')(app);
+var passport = require('./lib/passport')(app); //passport를 불러오기
 
 
 

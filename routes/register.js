@@ -26,7 +26,7 @@ router.post('/',(req,res) => {
         })
         //회원가입을 하면 자동으로 로그인 되도록 설정했다.
         //회원가입을 할시 req.login(user)의 user값이 serialize의 user매개변수로 가는듯하다.
-        //
+        
     })
 })
 
