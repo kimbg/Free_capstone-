@@ -56,7 +56,10 @@ app.get('/', (req,res) => {
     //         res.send("hello");
     //     })
     // })
-    res.send(req.user);
+    //console.log(req);
+    console.log('req.user로그값 : ',req.user);
+    res.send(req.user); //req.user는 passport에서 만드는것이기 때문에
+    // passport이후 사용가능하다 //바꾸는 동영상은 10:00참조
 })
 
 app.get('/index',(req,res) => {

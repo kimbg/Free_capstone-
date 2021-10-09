@@ -15,9 +15,12 @@ router.post('/',(req,res) => {
     console.log('이름',req.body.name);
     var user = {        
         id : shortId.generate(),
-        name : req.body.email,
+        email : req.body.email,
         pwd : req.body.password,
+        uname : req.body.name
     }
+    //DB에 값을 넣을때 password는 bcrypt를 하고 넣어야 한다.
+    //하는방법 잘 모르면 생코Multi User Auth의 비밀번호 암호화 참조
     console.log('register.js 유저정보 : ',user);
     db.get('users').push(user).write(); //여기서 DB폴더의 db.json파일에 user값을 넣는다
     req.login(user,(err)=> {
