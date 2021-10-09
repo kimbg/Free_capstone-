@@ -26,8 +26,12 @@ const credentials = {
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
     "token_uri": "https://oauth2.googleapis.com/token", "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
     "client_secret": "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", "redirect_uris": ["http://localhost:3000/auth/google/callback"],
-    "javascript_origins": ["http://localhost:3000"]
-    
+    "javascript_origins": ["http://localhost:3000"]    
+}
+
+const credentials2 = {
+    cleitID : '2a8f2e28d03826a91690db36ea52acb9',
+    callbackURL : 'http://localhost:3000/auth/kakao/callback'
 }
 
 
@@ -35,5 +39,6 @@ module.exports = {
     config: config1,
     shortId: shortId,
     lowdb: db,
-    googleCredentials : credentials
+    googleCredentials : credentials,
+    kakaoCredentials : credentials2
 }

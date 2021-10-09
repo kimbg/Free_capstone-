@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 //session 미들웨어를 정의 함으로써 req.session에 값을 추가해준다.
 app.use(session({
-    secret: 'keyboard cat',
+    secret: 'keyboard cat',//이 세션 시크릿키도 유출하며안된다.
     resave: false, //세션 데이터가 바뀌기전에 세션 값을 변하지않는게 false
     saveUninitialized: true, //세션이 필요하기전까지 세션을 구동하지 않는다.
     store : new FileStore()//파일 저장은 Default로 sessions라는 폴더에 들어간다.
@@ -65,11 +65,7 @@ app.get('/', (req,res) => {
 app.get('/index',(req,res) => {
     console.log("인덱스 로그인",req.user); //deserializeUser의 authData가 req.user에 담겨저 온다
 
-    lowdb.get('users').push({
-        id : shortId.generate(),
-        name : req.user.username,
-        pwd : req.user.password        
-    }).write();
+    
     res.sendFile(__dirname + '/index.html');
 })
 
