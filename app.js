@@ -21,6 +21,8 @@ app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 
 
+
+
 //session 미들웨어를 정의 함으로써 req.session에 값을 추가해준다.
 app.use(session({
     secret: 'keyboard cat',//이 세션 시크릿키도 유출하며안된다.
@@ -35,7 +37,7 @@ var passport = require('./lib/passport')(app); //passport를 불러오기
 
 
 
-
+ 
 
 
 app.use('/login',loginRouter);
@@ -58,7 +60,9 @@ app.get('/', (req,res) => {
     // })
     //console.log(req);
     console.log('req.user로그값 : ',req.user);
-    res.send(req.user); //req.user는 passport에서 만드는것이기 때문에
+    var liketemplate = require('./login');
+    res.send(liketemplate.html(123));
+    //res.send(req.user); //req.user는 passport에서 만드는것이기 때문에
     // passport이후 사용가능하다 //바꾸는 동영상은 10:00참조
 })
 
