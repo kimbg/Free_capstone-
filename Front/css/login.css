@@ -1,0 +1,218 @@
+        * {
+            text-decoration: none;
+            border : none;
+            outline : none;
+            
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: rgb(224, 224, 224);
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .row {
+            flex-direction: row;
+            display: flex;
+        }
+
+        #login {
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 5px;
+
+            width: 400px;
+            height: 500px;
+            margin: -250px 0 0 -200px;
+            transition: 3s;
+        }
+
+        #loginform {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .photo {
+            margin-bottom: 10px;
+        }
+
+        #loginform>input {
+            width: 75%;
+            height: 35px;
+            margin: 0 auto;
+            margin-top: 5px;
+            background: rgb(233, 233, 233);
+            border: none;
+            border-radius: 3px;
+        }
+
+        #row_1 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #row_1>input {
+            margin-left: 12.5%
+        }
+
+        #loginbt {
+            color: white;
+            background: rgb(250, 122, 128);
+            width: 75%;
+            height: 35px;
+            margin: 0 auto;
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 5px;
+        }
+
+        #row_2 {
+            justify-content: space-around;
+            width: 75%;
+            margin-left: 12.5%
+        }
+
+        #row_2 a {
+            color: black;
+        }
+
+        #authImg1 {
+            width : 60px;
+            height : 30px;
+        }
+
+        #authImg2 {
+            width : 53px;
+            height : 36px;
+        }
+
+        #loginToAuth {
+            justify-content: space-around;
+            width: 75%;
+            margin-left: 12.5%;
+            margin-top: 30px;
+        }
+
+        #loginToAuth button {
+            background-color: inherit;
+        }
+
+        #join_window {
+            position: absolute;
+            z-index: 0;
+            width: 400px;
+            height: 500px;
+            opacity: 0;
+
+
+            top: 50%;
+            left: 50%;
+            margin: -250px 0 0 -200px;
+            background: white;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+
+            transition: 3s;
+        }
+        #joinform {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+
+        }
+        #joinform > input {
+            width: 75%;
+            height: 35px;
+            margin: 0 auto;
+            margin-top: 5px;
+            background: rgb(233, 233, 233);
+            border: none;
+            border-radius: 3px;
+        }
+        #yak {
+            font-size : 1.3em;
+            font-weight: bold;
+        }
+        #joinform > textarea {
+            width: 75%;            
+            margin: 0 auto;
+            margin-top: 5px;
+            background: rgb(233, 233, 233);
+            border: none;
+            border-radius: 3px;
+        }
+        #joinform > div.row {
+            margin-left: 12.5%;
+        }
+        #memberjoinbtn {
+            color: white;
+            background: rgb(250, 122, 128);
+            width: 75%;
+            height: 35px;
+            margin: 0 auto;
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 5px;
+        }
+
+        #find_id_window {
+            z-index: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 5px;
+            
+            opacity : 0;
+
+            width: 400px;
+            height: 500px;
+            margin: -250px 0 0 -200px;
+            transition: 3s;
+        }
+        #find_pw_window {
+            z-index: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 5px;
+
+            opacity : 0;
+
+            width: 400px;
+            height: 500px;
+            margin: -250px 0 0 -200px;
+            transition: 3s;
+        }
+        .close {
+            position:absolute;
+            top : 0;
+            right : 0;
+        }
