@@ -1,45 +1,15 @@
-<html> 
-    <head> 
-        <title>alert을 대체할 dialog 태그</title> 
-        <style> 
-        #myMsgDialog 
-        { 
-            width:40%; 
-            background-color: #f4ffef; 
-            border:1px solid black; 
-            border-radius: 7px; 
-        }
-        #mButton 
-        { 
-            padding: 7px 30px; 
-            background-color: #66ccff;
-            color: white;
-            font-size: 15px; 
-            border: 0; 
-            outline: 0; 
-        } 
-        </style> 
-        </head> 
-    <body> 
-        <button onclick="showMsg()">메시지 띄우기</button> 
-        <div> <!-- 아래 dialog 태그 영역이 메시지 창 --> 
-            <dialog id="myMsgDialog"> 
-                <h3>여기는 메시지 내용입니다.</h3> 
-                <input type="button" id="mButton" onclick="closeMsg()" value=" 확 인 " > 
-            </dialog> 
-        </div> 
-        <script> 
-        function showMsg()
-        { 
-            var dialog = document.getElementById("myMsgDialog"); 
-            dialog.showModal(); 
-        } 
-        function closeMsg()
-        { 
-            var dialog = document.getElementById("myMsgDialog"); 
-            dialog.close(); 
-        } 
-        </script> 
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action = "/upload" method="POST" enctype="multipart/form-data">
+        <input type = "file" name = "imgFile">
+        <input type = "submit">
+    </form>
+</body>
 </html>
-
