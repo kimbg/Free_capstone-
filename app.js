@@ -70,10 +70,7 @@ const passport = require('./passport')(app);
 app.use('/login',loginRouter);
 app.use('/join',registerRouter);
 app.use('/auth',authRouter);
-//아래 두코드는 보류
-//app.use('/auth',authRouter.google);
-//app.use('/auth/google',authRouter.google);
-//app.use('/auth/kakao',authRouter.kakao);
+
 
 ///*testcode
 
