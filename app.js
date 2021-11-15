@@ -8,6 +8,7 @@ const registerRouter = require('./routes/register');
 const authRouter = require('./routes/auth');
 const multer = require('multer');
 const fs = require('fs');
+
 const _storage = multer.diskStorage({
     destination : (req,file,cb)=> {cb(null,__dirname+'/Image')},
     //destination안에서 파일 형식 즉 이미지 혹은 텍스트에 따라 
@@ -66,11 +67,11 @@ app.use(express.urlencoded({extended:false}));
 const passport = require('./passport')(app);
 
 
-
 app.use('/login',loginRouter);
 app.use('/join',registerRouter);
+app.use('/auth',authRouter);
 //아래 두코드는 보류
-//app.use('/auth/*',authRouter.google);
+//app.use('/auth',authRouter.google);
 //app.use('/auth/google',authRouter.google);
 //app.use('/auth/kakao',authRouter.kakao);
 
@@ -148,32 +149,7 @@ app.post('/sendajax',(req,res)=> {
             //res.json({data : sendData});
             res.send(sendData);
         })
-    })  
-    /*
-    console.log("json data : ",req.body.num);
-    var sendData;
-    mysql.getConnection((err,conn)=> {
-        conn.query(`select * from noticeBoard where num = ?`,[req.body.num],(err,result)=> {
-            if(err){
-                console.log(err);                
-                sendData = 'noData';
-                //return res.redirect('/login');
-            }
-            else if(!result[0]){
-                console.log('결과 없음');
-                sendData = 'noData';
-                //return res.json({data : null});
-            }
-            else sendData = result;
-
-            console.log(result);
-            conn.release();
-            //res.json({data : sendData});
-            res.send(sendData);
-        })
-    })  
-    */
-    
+    })     
 })
 
 
@@ -182,17 +158,7 @@ app.post('/sendajax',(req,res)=> {
 
 
 //메인 페이지
-app.get('/', (req, res)=> {
-    var fname = "채용담당자(2).png";
-    var photoType = '.png';
-    var i = 0;
-    try {
-        fs.statSync(__dirname + `/Image/${fname}`);
-        console.log('있다');
-    }catch(err){
-        console.log('없다');
-    }
-
+app.get('/', (req, res)=> {    
     res.redirect('/login');
 })
 
