@@ -160,6 +160,7 @@
             background: rgb(233, 233, 233);
             border: none;
             border-radius: 3px;
+            resize: none;
         }
         #joinform > div.row {
             margin-left: 12.5%;

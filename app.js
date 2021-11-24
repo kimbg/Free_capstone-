@@ -33,7 +33,9 @@ const _storage = multer.diskStorage({
                             fname = firstName + `(${i})` + photoType[j];
                         }
                         catch(err) {
-                            swit = false;
+                            //이부분에 DB에 해당 유저 게시글에 이미지 이름 넣어야함.
+                            // 그래서 나중에 이름 기반으로 사진 가져와야함
+                            swit = false;                            
                             cb(null,fname);
                         }
                     }                                        
@@ -94,13 +96,11 @@ app.post('/upload',(req,res)=> {
             console.log(err);
         }
     })
-
 })
 
 
 /*
 app.get('/image/:id',(req,res)=> {
-    
     res.sendFile(__dirname + `/Image/${req.params.id}.jpg`);
 })
 */
@@ -150,13 +150,14 @@ app.post('/sendajax',(req,res)=> {
 })
 
 
-
+app.use('/picture',express.static('picture'));
 //*///testcode
 
 
 //메인 페이지
 app.get('/', (req, res)=> {    
-    res.redirect('/login');
+    //res.redirect('/login');
+    res.sendFile(__dirname + `/Front/html/drag&drop.html`);
 })
 
 app.get('/main',(req,res)=>{

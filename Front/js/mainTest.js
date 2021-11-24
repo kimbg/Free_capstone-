@@ -5,24 +5,6 @@ function closeDlg()  //Dlg닫는 함수
     document.getElementsByClassName("forDlg").style.display = "none";
 }
 
-/*스크롤시 추가내용 불러오기*/ 
-// var addItem = '<h1>Title</h1>'; //추가되는 내용 기본값.
-// addItem += '<img src = "http://placehold.it/500x400" class = "main_photo">';
-// addItem += '<div class = "content_end">';
-// addItem += '<div>content</div>';
-// addItem += '<button type = "button" class = "contentbt"><img src = "http://placehold.it/45x45"></button>';
-// addItem += '</div>';
-// addItem += '<div class = "forDlg">';
-// addItem += '<dialog id = "myDlg">';
-// addItem += '<a href = "#" onclick = "closeDlg()" id = "closebtn">X</a> ';
-// addItem += '<div id = "screen">';
-// addItem += '<div id = "screen_aside_left">';
-// addItem += '<img src = "http://placehold.it/100x100" id = "map">';
-// addItem += ' </div> ';
-// addItem += '<div id = "screen_aside_right">';
-// addItem += '<div>경상남도 김해시 인제로 197</div>';
-// addItem += '<h4>인제대학교</h4>';
-// addItem += '</div> </div> </dialog> </div>';
 
 function AddItem(data) {
 
@@ -89,33 +71,7 @@ $(function () {
                     swit = true;
                     backNum--;
                 }
-                //console.log('swit : ',data);
-            })
-
-
-            //아래주석이 db순서대로 가져오는 코드
-            //게시물의 경우 최신 게시글이 먼저 보여야하기때문에 아래코드는 순서가 반대임
-            //  $.ajax({
-            //     url : '/sendajax',
-            //     type : 'POST',
-            //     dataType : "JSON",
-            //     data : {'num' : i},
-            // })
-            // .done(function(data){
-            //     if(data.data != 'noData'){
-            //         console.log('done부분의 data : ',data);
-            //         i++;                            
-            //         $('#content_bar').append(AddItem(data));            
-            //         swit = true;
-            //     }
-            //     //console.log('swit : ',data);
-            // })
-            // .fail(function(data,textStatus,errorThrown) {
-            //     //console.log("fail ajax");
-            //     //console.log(errorThrown);
-            // })
-            
-           
+            })           
         }
     });
 });
