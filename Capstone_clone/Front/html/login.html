@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src = "../jquery/jquery-3.6.0.min.js"></script>
+    <!--css파일 불러오기-->
+    <link rel = "stylesheet" href = "/css/login.css">
+</head>
+
+<body>
+    <div id="login">
+        <form id = "loginform" action = "login" method = "POST">
+            <div  class="center photo"><img src="http://placehold.it/150x150"></div>
+            <input type="text" name = "id" placeholder="사용자 아이디" required />
+            <input type="text" name = "pw" placeholder="비밀번호" required />
+            <div id="row_1" class="row">
+            <input type="checkbox" name = "login_stay" id="chkbtn" /><label for="chkbtn">로그인 상태유지</span>
+            </div>
+            <button type="submit" id="loginbt" onclick="btn();">로그인</button>
+            <div id="row_2" class="row">
+                <a href="#"  id="joinhref">회원가입</a>
+                <a href="#"  id = "find_id">계정찾기</a>
+                <a href="#"  id = "find_pw">비밀번호 찾기</a>
+            </div>
+            <div class = "row" id = "loginToAuth">
+                <a href = "/auth/kakao"><img src = "/picture/kakao-2.png"/></a>
+                <a href = "/auth/google"><img src = "/picture/google-1.png"/></a>                
+            </div>
+        </form>
+    </div>
+
+    <div id="join_window">
+        <button type = "button" class = "close">X</button>
+        <form id = "joinform" action = "join" method = "POST">
+            <div class = "photo"><img src = "http://placehold.it/50x50"></div>
+        <input type = "text" name = "id" placeholder="아이디(휴대폰 번호 또는 이메일 주소)" required/>
+        <input type = "text" name = "pw" placeholder="비밀번호" required/>
+        <input type = "text" name = "name" placeholder="이름" required/>
+        <input type = "text" name = "birth" placeholder="생년월일(YY/MM/DD)" required/>
+        <div class = "row" id = "yak">약관</div>
+        <textarea id = "area" rows="5" readonly>회원가입 약관 스크롤 바 형식 어쩌구 저쩌구 </textarea>
+        <div class = "row">
+            <input type = "checkbox" id = "yakgwanbtn"  required>
+            <label for = "yakgwanbtn">동의합니다.</label>
+        </div>
+        <button type = "submit" id = "memberjoinbtn">회원가입</button>
+        </form>
+    </div>
+    <div id = "find_id_window">
+        <button type = "button" class = "close">X</button>
+        아이디 찾기 창
+    </div>
+    <div id = "find_pw_window">
+        <button type = "button" class = "close">X</button>
+        비밀번호 찾기 창
+    </div>
+
+
+    <!--js 파일 불러오기!-->
+    <script type = "text/javascript" src = "/js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<html>
+
+<head>
+	
+	<script src="jquery/jquery-3.6.0.min.js"></script>
+	<link rel = "stylesheet" href = "/css/mainTest.css">
+</head>
+
+<body id = "body_event">
+	<header>
+		<h1>Brand</h1>
+		<form>
+			<input type="text">
+		</form>
+		<nav>
+			<span>
+
+			</span>
+			<span><a href="#"><img src="http://placehold.it/45x45"></a></span>
+			<span><a href="#"><img src="http://placehold.it/45x45"></a></span>
+			<span><a href="#"><img src="http://placehold.it/45x45"></a></span>
+		</nav>
+	</header>
+
+	<!--Main bar-->
+	<main id = "main_content">
+		<div id = "wrap">
+			<div id = "content_bar">
+				<h1>Title</h1>
+				<div class = "content"><img src = "http://placehold.it/100x100" class = "main_photo"></div>
+				<div class = "content_end">
+					<div>content</div>
+					<button type = "button" class = "contentbt"><img src = "http://placehold.it/45x45"></button>					
+				</div>
+				<div class = "forDlg"> <!--Dlg를 띄우기 위한 div-->
+					<dialog id = "myDlg"> <!--Dlg선언-->
+						<a href = '#' onclick = "closeDlg()" id = "closebtn">X</a> <!--Dlg를 닫을때 사용되는 X표시-->
+						<div id = "screen"> <!--X표 밑의 Dlg내용-->
+							<div id = "screen_aside_left"> <!--Dlg의 왼쪽 내용 즉 사진 파트-->
+								<img src = "http://placehold.it/100x100" id = "map"> <!--사진들어가야할 위치-->
+							</div> <!--Dlg 왼쪽 div 닫아주고-->
+							<div id = "screen_aside_right"> <!--Dlg오른쪽 파트-->
+								<div>경상남도 김해시 인제로 197</div> <!--주소및 다른 내용-->
+								<h4>인제대학교</h4>				
+							</div><!--Dlg 오른쪽 div 닫고-->
+						</div><!--x표시 밑에 있는 Dlg div닫아주고-->
+					</dialog><!--Dlg닫아주고-->
+				</div><!--Dlg를 위해 있는 div닫아주고-->
+
+
+				<h1>Title</h1>
+				<div class = "content"><img src = "http://placehold.it/100x100" class = "main_photo"></div>
+				<div>content</div>
+			</div>
+		</div>
+		<div id = "sidebar">
+			<div>another Content</div>
+		</div>
+	</main>
+	
+	<script type = "text/javascript" src = "/js/mainTest.js"></script>
+</body>
+
+</html>
